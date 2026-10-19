@@ -1,6 +1,8 @@
-# 📦 OCA WhatsApp Tracker
+# 📦 OCA-Follower
 
-Sistema automatizado en Python para monitoreo de envíos de **OCA (Argentina)** mediante consultas a su servicio web SOAP/ASMX (`Tracking_Pieza`), persistencia y detección de deltas con **SQLite**, y despacho de alertas instantáneas por **WhatsApp** utilizando la API de **CallMeBot**. Diseñado para ejecutarse como daemon continuo o tarea programada.
+Avisa vía WhatsApp el estado actual de tus envíos de **OCA (Argentina)** sin necesidad de acceder a su sitio web ni resolver CAPTCHAs.
+
+Sistema automatizado en Python mediante consultas a su servicio web ASMX (`Tracking_Pieza`), persistencia y detección de deltas con **SQLite** (firmas SHA-256), y despacho de alertas instantáneas por **WhatsApp** utilizando la API de **CallMeBot**. Diseñado para ejecutarse como daemon continuo (systemd) o tarea programada (`--once`).
 
 ---
 
