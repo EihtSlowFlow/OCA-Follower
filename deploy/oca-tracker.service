@@ -1,0 +1,15 @@
+[Unit]
+Description=OCA WhatsApp Tracking Daemon
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ramiro
+WorkingDirectory=/home/ramiro/Documentos/Seguidor_de_OCA/oca-whatsapp-tracker
+ExecStart=/home/ramiro/Documentos/Seguidor_de_OCA/oca-whatsapp-tracker/.venv/bin/python -m src.main --daemon
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

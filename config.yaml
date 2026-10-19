@@ -1,0 +1,31 @@
+# OCA WhatsApp Tracker Configuration
+
+database:
+  path: "data/tracker.db"
+  timeout_seconds: 10
+  wal_mode: true
+
+oca:
+  # ASMX web service base URL. The client calls <asmx_url>/Tracking_Pieza (HTTP POST).
+  # Note: GetEnvioEstadoActual is NOT usable here: it requires an `ordenRetiro` parameter.
+  asmx_url: "https://webservice.oca.com.ar/epak_tracking/Oep_TrackEPak.asmx"
+  timeout_seconds: 15
+
+notifier:
+  provider: "callmebot"
+  enabled: true
+  # Cooldown between successive WhatsApp messages to avoid rate limits
+  cooldown_between_alerts_seconds: 10
+
+daemon:
+  # Normal polling interval when healthy (1200 seconds = 20 minutes)
+  poll_interval_seconds: 1200
+  # Backoff settings when encountering network/server errors
+  min_backoff_seconds: 60
+  max_backoff_seconds: 900
+
+# Packages to track initially (these will be synchronized to the SQLite database)
+packages:
+  - tracking_number: "3890200000000012345"
+    alias: "Ejemplo: Compra MercadoLibre"
+    active: true
